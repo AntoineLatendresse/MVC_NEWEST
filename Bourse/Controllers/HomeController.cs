@@ -41,9 +41,7 @@ namespace MVC.Controllers
 
         public ActionResult Gallery()
         {
-           Gallery gal = new Gallery();
-           gal.SelectAll();
-           return View(gal);
+            return View();
         }
 
 
