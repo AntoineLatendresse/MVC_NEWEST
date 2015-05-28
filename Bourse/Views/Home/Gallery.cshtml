@@ -1,0 +1,57 @@
+﻿@model MVC.Models.Gallery
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<style>
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    span {
+        border-radius: 25px;
+        border: 2px solid black;
+        padding: 4px;
+        background-color: lightgreen;
+        font-family: monospace;
+    }
+
+    img:hover {
+        border: 2px solid black;
+    }
+
+    img {
+        padding: 2px;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<h2>Gallery</h2>
+
+<script type="text/javascript">
+    function BorderDown(img) {
+        img.style.width = "150px";
+        img.style.height = "170px";
+    }
+    function BorderUp(img) {
+        img.style.width = "170px";
+        img.style.height = "190px";
+    }
+</script>
+
+<table>
+    <tr>
+        @while (Model.Next())
+        {
+            <td><img src=@Model.GetGalleryURL() onmousedown="BorderDown(this)" onmouseup="BorderUp(this)" /><br /></td>
+            if ((Model.ID % 5) == 0)
+            {
+                @Html.Raw("</tr>");
+            @Html.Raw("<tr>");
+            }
+        }
+    </tr>
+</table>
+
