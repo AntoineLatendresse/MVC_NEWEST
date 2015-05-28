@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace test.Class
+namespace MVC
 {
     public static class VariablesGlobales
     {

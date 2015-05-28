@@ -31,21 +31,14 @@
 <h2>Gallery</h2>
 
 <script type="text/javascript">
-    function BorderDown(img) {
-        img.style.width = "150px";
-        img.style.height = "170px";
-    }
-    function BorderUp(img) {
-        img.style.width = "170px";
-        img.style.height = "190px";
-    }
+
 </script>
 
 <table>
     <tr>
         @while (Model.Next())
         {
-            <td><img src=@Model.GetGalleryURL() onmousedown="BorderDown(this)" onmouseup="BorderUp(this)" /><br /></td>
+            <td><img src=@Model.GetGalleryURL()  /><br /></td>
             if ((Model.ID % 5) == 0)
             {
                 @Html.Raw("</tr>");

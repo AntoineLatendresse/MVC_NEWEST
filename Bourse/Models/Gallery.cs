@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVC.Models
 {
-    public class Gallery : MVC.SqlExpressUtilities
+    public class Gallery : SqlExpressUtilities.SqlExpressWrapper
     {
 
         public int ID { get; set; }
@@ -15,6 +15,7 @@ namespace MVC.Models
             : base(connexionString)
         {
             SQLTableName = "Gallery";
+            
         }
 
         public Gallery()
