@@ -1,0 +1,23 @@
+﻿@model MVC.Models.UsersModel
+@{
+    ViewBag.Title = "Home Page";
+}
+@{
+
+    if (!(bool)Session["UserValid"])
+    {
+        <p>@TempData["Notice"]</p>
+        <h2>Authentification</h2>
+        using (Html.BeginForm())
+        {
+            @Html.Label("Username") <br />
+            @Html.TextBox("UserName") <br />
+
+            @Html.Label("Password")<br />
+            @Html.Password("Password")<br />
+
+            <br />
+            <button type="submit">Connect</button>
+        }
+    }
+}

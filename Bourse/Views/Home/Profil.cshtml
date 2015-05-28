@@ -1,0 +1,44 @@
+﻿@model MVC.Models.UsersModel
+@{
+    ViewBag.Title = "Profile";
+}
+@{
+    if (!(bool)Session["UserValid"])
+    {
+        <h2>Please return to the Home Page to authenticate yourself in order to access your profile</h2>
+    }
+    else
+    {
+        <h2>Profil</h2>
+        <p style="color:red">@TempData["Notice"]</p>
+        using (Html.BeginForm("Profil",
+                        "Home",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+        {
+            @Html.Label("Username") <br />
+            @Html.TextBox("UserName", Model.UserName); <br />
+
+
+    @Html.Label("Password ")<br />
+    @Html.TextBox("Password", Model.Password)<br />
+
+
+    @Html.Label("Full Name")<br />
+    @Html.TextBox("FullName", Model.FullName)<br />
+
+
+    @Html.Label("E-Mail")<br />
+    @Html.TextBox("EMail", Model.EMail)<br />
+
+
+    @Html.Label("Phone Number")<br />
+    @Html.TextBox("Telephone", Model.Telephone)<br />
+
+    <br />
+    <button type="submit">Submit changes</button>
+        }
+
+    }
+}
+

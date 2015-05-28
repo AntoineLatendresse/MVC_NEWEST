@@ -1,0 +1,45 @@
+﻿@model MVC.Models.UsersModel
+@{
+    ViewBag.Title = "Subscribe";
+}
+
+
+<h2>Inscription</h2>
+<p style="color:red">@TempData["Notice"]</p>
+
+@using (Html.BeginForm("Subscribe",
+                        "Home",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.Label("Username") <br />
+        @Html.TextBox("UserName", Model.UserName)<br />
+
+
+        @Html.Label("Password ")<br />
+        @Html.TextBox("Password", Model.Password)<br />
+
+
+        @Html.Label("Full Name")<br />
+        @Html.TextBox("FullName", Model.FullName)<br />
+
+
+        @Html.Label("E-Mail")<br />
+        @Html.TextBox("EMail", Model.EMail)<br />
+
+
+        @Html.Label("Phone Number")<br />
+        @Html.TextBox("Telephone", Model.Telephone)<br />
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
