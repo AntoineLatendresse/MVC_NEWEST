@@ -39,12 +39,6 @@ namespace MVC.Controllers
             return View();
         }
 
-        public ActionResult Gallery()
-        {
-            return View();
-        }
-
-
         public ActionResult Deconnexion()
         {
             Session["UserValid"] = false;
